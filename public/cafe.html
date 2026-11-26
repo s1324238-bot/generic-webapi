@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>きまぐれ喫茶店</title>
+<link rel="stylesheet" href="cafe.css">
+<script src="cafe.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="brand">KIMAGURE CAFÉ</div>
+  <h1>きまぐれ喫茶店</h1>
+  <p>あなたの心に、小さなひと休みを。</p>
+  <span id="visitBadge" class="pill"></span>
+</header>
+
+<nav>
+  <button data-page="menu">☕ メニュー</button>
+  <button data-page="table">🍰 お食事</button>
+  <button data-page="talk">💌 おしゃべり</button>
+  <button data-page="book">📖 思い出帳</button>
+  <button data-page="stamp">♡ スタンプ</button>
+  <button data-page="design">🎀 模様替え</button>
+</nav>
+
+<main>
+
+<section id="menu" class="page active">
+  <div class="ornament">୨୧</div>
+  <h2>いらっしゃいませ</h2>
+  <p>今日はどんな一日でしたか？</p>
+  <textarea id="mood" maxlength="500" rows="4"
+    placeholder="今日の出来事や気分を教えてください…"></textarea>
+
+  <label for="taste">今日のお好み</label>
+  <select id="taste">
+    <option>マスターにおまかせ</option>
+    <option>甘いものが食べたい</option>
+    <option>さっぱりしたものがいい</option>
+    <option>温かいものが飲みたい</option>
+    <option>冷たいものが飲みたい</option>
+    <option>とにかくかわいいもの！</option>
+  </select>
+
+  <button id="generate" class="primary">
+    本日のメニューを見る ♡
+  </button>
+
+  <p id="menuStatus" role="status"></p>
+
+  <div id="menuResults" hidden>
+    <h2>Drink Menu</h2>
+    <div id="drinks" class="menu-grid"></div>
+    <h2>Sweets Menu</h2>
+    <div id="sweets" class="menu-grid"></div>
+
+    <div class="order-bar">
+      <p id="selection">お好きなメニューを選んでね</p>
+      <button id="order" class="primary" disabled>
+        この組み合わせで注文する
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="table" class="page">
+  <h2>あなたのお席</h2>
+  <div id="tableContent"></div>
+</section>
+
+<section id="talk" class="page">
+  <div class="ornament">☕</div>
+  <h2>マスターとのおしゃべり</h2>
+  <p>どんなお話でも聞かせてくださいね。</p>
+  <div id="chatLog" aria-live="polite"></div>
+  <form id="chatForm">
+    <input id="chatInput" maxlength="500"
+      placeholder="マスター、聞いて…">
+    <button id="send" class="primary">送信 ♡</button>
+  </form>
+</section>
+
+<section id="book" class="page">
+  <h2>喫茶店の思い出帳</h2>
+  <p>あなたが出会った、特別なメニューたち。</p>
+  <div id="collectionCount"></div>
+  <div id="history"></div>
+</section>
+
+<section id="stamp" class="page">
+  <h2>常連さんカード</h2>
+  <p>お会計ごとにスタンプを1つプレゼント。</p>
+  <div id="stampGrid"></div>
+  <p id="stampMessage"></p>
+  <div class="note">
+    5個集めると限定メニューが解放されます♡
+  </div>
+</section>
+
+<section id="design" class="page">
+  <h2>自分だけの喫茶店</h2>
+  <p>お気に入りの空間を作りましょう。</p>
+
+  <h3>壁紙</h3>
+  <div class="choices">
+    <button data-setting="wall" data-value="pink">🎀 ローズ</button>
+    <button data-setting="wall" data-value="cream">🤍 クリーム</button>
+    <button data-setting="wall" data-value="blue">🩵 ブルー</button>
+    <button data-setting="wall" data-value="green">🍃 ミント</button>
+  </div>
+
+  <h3>テーブルクロス</h3>
+  <div class="choices">
+    <button data-setting="cloth" data-value="check">ギンガム</button>
+    <button data-setting="cloth" data-value="dot">ドット</button>
+    <button data-setting="cloth" data-value="plain">無地</button>
+  </div>
+
+  <h3>食器</h3>
+  <div class="choices">
+    <button data-setting="plate" data-value="white">白い食器</button>
+    <button data-setting="plate" data-value="pink">ピンクの食器</button>
+    <button data-setting="plate" data-value="gold">金縁の食器</button>
+  </div>
+
+  <div id="designPreview" class="tablecloth">
+    <div class="plate">🍰</div>
+    <div class="plate">☕</div>
+  </div>
+  <p>変更は自動で保存されます。</p>
+</section>
+
+<section id="receipt" class="page">
+  <h2>お会計</h2>
+  <div id="receiptContent"></div>
+  <button id="printReceipt">レシートを印刷・PDF保存</button>
+  <button id="newVisit" class="primary">また来店する ♡</button>
+</section>
+
+</main>
+
+<footer>୨୧ またのお越しをお待ちしております ୨୧</footer>
+
+</body>
+</html>
